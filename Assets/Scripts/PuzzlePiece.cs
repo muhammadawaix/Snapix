@@ -28,6 +28,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         startPos = rect.anchoredPosition;
         canvasGroup.blocksRaycasts = false;
         transform.SetAsLastSibling();
+        GamePlay.instance.DragSound();
     }
 
     public void OnDrag(PointerEventData eventData)

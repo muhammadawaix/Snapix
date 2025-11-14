@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,6 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // PlayerPrefs.SetInt("LevelClearIndex",0);
         foreach(Button level in levels)
         {
             level.interactable = false;
@@ -40,12 +40,19 @@ public class LevelManager : MonoBehaviour
     
     public void ClickButton(int levelIndex)
     {
+        MainMenu.instance.SoundSettingBtn();
+
         currentLevelNumber = levelBluePrints[levelIndex].levelNumber;
         PlayerPrefs.SetInt("CurrentLevelNumber", currentLevelNumber);
 
         currentImageNumber = levelBluePrints[levelIndex].imageNumber;
         PlayerPrefs.SetInt("currentImageNumber", currentImageNumber);
+        StartCoroutine(LoadLevel());
+    }
 
+    IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene(1);
     }
 }

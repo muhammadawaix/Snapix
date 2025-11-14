@@ -1,28 +1,10 @@
 fileFormatVersion: 2
-guid: f498a3343090dc943af80b286fa9bf45
+guid: 19b6f39abd9c1f04ba7d070802147f50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9077220447102647180
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_0
-  - first:
-      213: -7013218646161127261
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_1
-  - first:
-      213: -4679754554120547809
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_2
-  - first:
-      213: 7413334513084711914
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_3
-  - first:
-      213: -1769744371239181433
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_4
-  - first:
-      213: -5926233321501500231
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_5
-  - first:
-      213: 1631624028686380129
-    second: ChatGPT Image Nov 12, 2025, 03_49_10 PM_6
+      213: 101209642910601267
+    second: Logo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -157,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_0
+      name: Logo 1_0
       rect:
         serializedVersion: 2
-        x: 135
-        y: 420
-        width: 135
-        height: 162
+        x: 43
+        y: 3
+        width: 767
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,140 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 474c886b81c370280800000000000000
-      internalID: -9077220447102647180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_1
-      rect:
-        serializedVersion: 2
-        x: 555
-        y: 391
-        width: 135
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a88b678cca0cae90800000000000000
-      internalID: -7013218646161127261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_2
-      rect:
-        serializedVersion: 2
-        x: 689
-        y: 562
-        width: 55
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f12d0a5070c2e0fb0800000000000000
-      internalID: -4679754554120547809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_3
-      rect:
-        serializedVersion: 2
-        x: 741
-        y: 420
-        width: 139
-        height: 151
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae3ce8d467471e660800000000000000
-      internalID: 7413334513084711914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_4
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 425
-        width: 134
-        height: 136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 783aa01feda9077e0800000000000000
-      internalID: -1769744371239181433
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_5
-      rect:
-        serializedVersion: 2
-        x: 411
-        y: 424
-        width: 140
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9bcd1df413ac1cda0800000000000000
-      internalID: -5926233321501500231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChatGPT Image Nov 12, 2025, 03_49_10 PM_6
-      rect:
-        serializedVersion: 2
-        x: 694
-        y: 427
-        width: 44
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16ce7dcc861b4a610800000000000000
-      internalID: 1631624028686380129
+      spriteID: 330d78d42a1976100800000000000000
+      internalID: 101209642910601267
       vertices: []
       indices: 
       edges: []
@@ -314,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -324,13 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_0: -9077220447102647180
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_1: -7013218646161127261
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_2: -4679754554120547809
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_3: 7413334513084711914
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_4: -1769744371239181433
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_5: -5926233321501500231
-      ChatGPT Image Nov 12, 2025, 03_49_10 PM_6: 1631624028686380129
+      Logo 1_0: 101209642910601267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

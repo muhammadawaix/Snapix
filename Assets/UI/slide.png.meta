@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4264707d3be2570449609442af882a1d
+guid: f345a9051292454428fe162fe8f04b3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6086133630523316657
-    second: gpt-image-1_b_fill_gap_0
+      213: 9182157284707403512
+    second: Untitled-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gpt-image-1_b_fill_gap_0
+      name: Untitled-1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1536
+        width: 870
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f46691175b5b98ba0800000000000000
-      internalID: -6086133630523316657
+      spriteID: 8f600cab6639d6f70800000000000000
+      internalID: 9182157284707403512
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gpt-image-1_b_fill_gap_0: -6086133630523316657
+      Untitled-1_0: 9182157284707403512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
