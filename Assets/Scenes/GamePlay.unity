@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &231848960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -877,7 +877,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edd0b50eb20603499e9a74573c8e648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceImage: {fileID: 2800000, guid: f5eb61fee8fdef642950e5ad94dd40f4, type: 3}
+  sourceImage:
+  - {fileID: 2800000, guid: f5eb61fee8fdef642950e5ad94dd40f4, type: 3}
+  - {fileID: 2800000, guid: cd3cb2c368ec0644bbbe05ed346ff1d3, type: 3}
+  - {fileID: 2800000, guid: 4a32e7c3b75c9c64db4b0ae08e636b90, type: 3}
+  - {fileID: 2800000, guid: e64acaf9c0332b74ab5160d7162b8d18, type: 3}
+  - {fileID: 2800000, guid: 802b924571113194991c4303c45273b4, type: 3}
+  - {fileID: 2800000, guid: 88d4252bcef3bb24ca6a71e6a0040dc3, type: 3}
+  - {fileID: 2800000, guid: e6e90cf823a5dd74c8841d6cf55b5118, type: 3}
+  - {fileID: 2800000, guid: 6d842bd7384fad646911bcc22590de16, type: 3}
+  - {fileID: 2800000, guid: fce14e0dccc9f3a49847b47302eede4b, type: 3}
+  - {fileID: 2800000, guid: 76a81300cff091947a686618a6225c30, type: 3}
+  - {fileID: 2800000, guid: 4d664718cf1961e42951d8d5db797c50, type: 3}
+  - {fileID: 2800000, guid: 6c5fcdd0ec744904daed0114ec5c8fe6, type: 3}
+  - {fileID: 2800000, guid: 4e05a4d274a83124da70090c9a6eff1b, type: 3}
+  - {fileID: 2800000, guid: bee451015dbff55438bdb91b8b32ce83, type: 3}
+  - {fileID: 2800000, guid: 4ac3652b491513b42b9bb0ffd01b7f3d, type: 3}
+  - {fileID: 2800000, guid: af2a17d98cce56340962b07cccffb437, type: 3}
+  - {fileID: 2800000, guid: 07e79a9eac2d8e4409436b0aa95d6269, type: 3}
+  - {fileID: 2800000, guid: a08dc63a24f64f34d82a39879c410de3, type: 3}
+  - {fileID: 2800000, guid: 8bada2abd480f56418cc66119489991e, type: 3}
+  - {fileID: 2800000, guid: 224d6c79b6918ac46b278a88f41a6b07, type: 3}
   piecePrefab: {fileID: 5924743967191879287, guid: 1cf35ea625ba3c048b58555572ae0389, type: 3}
   puzzleRoot: {fileID: 1137772364599633629}
   rows: 3
@@ -1063,6 +1083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinPanel: {fileID: 231848959}
+  levelText: {fileID: 1674379996924124913}
 --- !u!4 &1639646099
 Transform:
   m_ObjectHideFlags: 0

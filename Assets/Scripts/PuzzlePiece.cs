@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    static public PuzzlePiece instance;
     [HideInInspector] public PuzzleManager manager;
     [HideInInspector] public int slotIndex;
+    [HideInInspector] public int currentSlot;
     [HideInInspector] public bool isLocked = false;
 
     [HideInInspector] public RectTransform rect;
@@ -14,6 +16,7 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     void Awake()
     {
+        instance = this;
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
@@ -30,45 +33,74 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnDrag(PointerEventData eventData)
     {
         if (isLocked) return;
-        // account for Canvas scaling automatically via eventData.delta (works for screen space)
+        
         rect.anchoredPosition += eventData.delta / (rect.GetComponentInParent<Canvas>()?.scaleFactor ?? 1f);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (isLocked) return;
-        canvasGroup.blocksRaycasts = true;
 
-        // find nearest piece (not self)
-        PuzzlePiece nearest = null;
-        float minDist = Mathf.Infinity;
-        foreach (var p in manager.pieces)
+    public void OnEndDrag(PointerEventData eventData)
+{
+    if (isLocked) return;
+    canvasGroup.blocksRaycasts = true;
+
+    
+    PuzzlePiece nearest = null;
+    float minDist = Mathf.Infinity;
+
+    foreach (var p in manager.pieces)
+    {
+        if (p == this) continue;
+        float d = Vector2.Distance(rect.anchoredPosition, p.rect.anchoredPosition);
+        if (d < minDist)
         {
-            if (p == this) continue;
-            float d = Vector2.Distance(rect.anchoredPosition, p.rect.anchoredPosition);
-            if (d < minDist)
-            {
-                minDist = d;
-                nearest = p;
-            }
+            minDist = d;
+            nearest = p;
         }
+    }
 
         if (nearest != null && minDist <= manager.snapThreshold)
         {
-            // swap positions
-            Vector2 tmpPos = nearest.rect.anchoredPosition;
-            nearest.rect.anchoredPosition = startPos;
-            rect.anchoredPosition = tmpPos;
+            
+            int tmpSlot = nearest.currentSlot;
+            nearest.currentSlot = this.currentSlot;
+            this.currentSlot = tmpSlot;
 
-            // swap slotIndex values so each piece keeps its logical target
-            int tmpIndex = nearest.slotIndex;
-            nearest.slotIndex = this.slotIndex;
-            this.slotIndex = tmpIndex;
+            
+            if (manager != null && manager.slots != null && manager.slots.Count > 0)
+            {
+                nearest.rect.anchoredPosition = manager.slots[nearest.currentSlot].anchoredPosition;
+                rect.anchoredPosition = manager.slots[this.currentSlot].anchoredPosition;
+            }
         }
         else
         {
-            // revert to original slot position
-            rect.anchoredPosition = startPos;
+            
+            if (manager != null && manager.slots != null && manager.slots.Count > 0)
+            {
+                rect.anchoredPosition = manager.slots[this.currentSlot].anchoredPosition;
+            }
+            else
+            {
+                rect.anchoredPosition = startPos;
+            }
         }
+
+    
+    Vector2 correctPos = PuzzleManager.instance.GetSlotPosition(slotIndex);
+    float distToCorrect = Vector2.Distance(rect.anchoredPosition, correctPos);
+    if (distToCorrect <= manager.snapThreshold)
+    {
+        isLocked = true;
+        rect.anchoredPosition = correctPos;
     }
+    else
+    {
+        isLocked = false;
+    }
+
+
+    if (PuzzleManager.instance != null)
+        PuzzleManager.instance.CheckPuzzleComplete();
+}
+
 }

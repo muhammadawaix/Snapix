@@ -90,5 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   slotIndex: 0
+  currentSlot: 0
   isLocked: 0
   rect: {fileID: 0}

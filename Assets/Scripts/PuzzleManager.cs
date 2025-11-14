@@ -4,23 +4,51 @@ using System.Collections.Generic;
 
 public class PuzzleManager : MonoBehaviour
 {
+    public static PuzzleManager instance;
     [Header("Assign in Inspector")]
-    public Texture2D sourceImage;        // drag your image (Texture2D, Read/Write enabled)
-    public GameObject piecePrefab;       // drag the UI Image prefab (with PuzzlePiece script)
-    public RectTransform puzzleRoot;     // drag an UI empty RectTransform (the grid area)
+    public Texture2D[] sourceImage;
+    public GameObject piecePrefab;
+        public RectTransform puzzleRoot;
 
     [Header("Grid")]
-    public int rows = 3;
-    public int cols = 3;
+    private int rows;
+    private int cols;
 
     [Header("Behavior")]
-    public float snapThreshold = 80f;    // distance in UI units for swap
-    // lists
+    public float snapThreshold = 80f;
+    
     [HideInInspector] public List<RectTransform> slots = new List<RectTransform>();
     [HideInInspector] public List<PuzzlePiece> pieces = new List<PuzzlePiece>();
 
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
+        int range = PlayerPrefs.GetInt("CurrentLevelNumber");
+        if(0 < range && range <= 5)
+        {
+            rows = Random.Range(3,4);
+            cols = Random.Range(3,4);
+        }
+        else if(5 < range && range <= 15)
+        {
+            rows = Random.Range(5,7);
+            cols = Random.Range(3,4);
+        }
+        else if(15 < range && range <= 20)
+        {
+            rows = Random.Range(6,7);
+            cols = Random.Range(4,4);
+        }
+        else
+        {
+            Debug.Log("Max Level Reached");
+        }
+
+
         if (sourceImage == null || piecePrefab == null || puzzleRoot == null)
         {
             Debug.LogError("PuzzleManager: Assign sourceImage, piecePrefab and puzzleRoot in Inspector.");
@@ -65,12 +93,12 @@ public class PuzzleManager : MonoBehaviour
     {
         pieces.Clear();
 
-        int texW = sourceImage.width;
-        int texH = sourceImage.height;
+        int texW = sourceImage[PlayerPrefs.GetInt("currentImageNumber")].width;
+        int texH = sourceImage[PlayerPrefs.GetInt("currentImageNumber")].height;
         int cellW = texW / cols;
         int cellH = texH / rows;
 
-        // Create a shuffled list of indices so pieces appear in random order in slots
+        
         List<int> indices = new List<int>();
         for (int i = 0; i < rows * cols; i++) indices.Add(i);
         Shuffle(indices);
@@ -80,13 +108,13 @@ public class PuzzleManager : MonoBehaviour
             int r = i / cols;
             int c = i % cols;
 
-            int randomIndex = indices[i]; // which slice will be placed into slot i
+            int randomIndex = indices[i];
 
             int sx = (randomIndex % cols) * cellW;
-            int sy = (rows - 1 - (randomIndex / cols)) * cellH; // invert y
+            int sy = (rows - 1 - (randomIndex / cols)) * cellH;
 
             Rect rect = new Rect(sx, sy, cellW, cellH);
-            Sprite sp = Sprite.Create(sourceImage, rect, new Vector2(0.5f, 0.5f), 100f);
+            Sprite sp = Sprite.Create(sourceImage[PlayerPrefs.GetInt("currentImageNumber")], rect, new Vector2(0.5f, 0.5f), 100f);
 
             GameObject go = Instantiate(piecePrefab, puzzleRoot);
             go.name = "Piece_" + randomIndex;
@@ -103,10 +131,10 @@ public class PuzzleManager : MonoBehaviour
             if (pp == null) pp = go.AddComponent<PuzzlePiece>();
             pp.manager = this;
             pp.slotIndex = randomIndex;
+            pp.currentSlot = i;
 
             pieces.Add(pp);
 
-            // Place piece into the slot position (but using shuffled order)
             rt.anchoredPosition = slots[i].anchoredPosition;
         }
     }
@@ -121,4 +149,31 @@ public class PuzzleManager : MonoBehaviour
             list[r] = tmp;
         }
     }
+
+public void CheckPuzzleComplete()
+{
+    foreach (var piece in pieces)
+    {
+        if (piece.currentSlot != piece.slotIndex)
+            return;
+    }
+
+    if (GamePlay.instance == null)
+    {
+        return;
+    }
+    GamePlay.instance.YouWin();
+    PuzzlePiece.instance.isLocked = true;
+}
+
+public Vector2 GetSlotPosition(int index)
+{
+    if (index < 0 || index >= slots.Count)
+    {
+        return Vector2.zero;
+    }
+    return slots[index].anchoredPosition;
+}
+
+
 }
