@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
             MainMenuPanel.SetActive(false);
             levelPanel.SetActive(true);
              SoundSettingBtn();
+            AdsManager.Instance.ShowInterstialAd();
         }
         else if (name == "Settings")
         {
